@@ -27,10 +27,20 @@ function moviesAverageOfDirector(array, director) {
 }
 //moviesAverageOfDirector(movies, 'Quentin Tarantino');
 
+
 // Exercise 4:  Alphabetic order by title 
 function orderAlphabetically(array) {
-  
+
+  const titlesArray = array.map(movie => movie["title"].toString()); 
+
+  const titlesOrdered = titlesArray.sort();
+  const twentyTitlesOrdered = titlesOrdered.splice(0,20);
+  let result = twentyTitlesOrdered;
+  console.log("EXERCICE 4 ->", result);
+  return result;  
 }
+
+//orderAlphabetically(movies);
 
 // Exercise 5: Order by year, ascending
 function orderByYear() {
