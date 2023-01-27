@@ -17,13 +17,19 @@ function getMoviesFromDirector(array, director) {
 //getMoviesFromDirector(movies, 'Quentin Tarantino');
 
 // Exercise 3: Calculate the average of the films of a given director.
+
+const moviesAverage = (array) => {
+  let scoresSum = array.reduce((accumulator, current) => accumulator + current.score , 0);
+  let averageScoreMovies = parseFloat((scoresSum / array.length).toFixed(2));
+  return averageScoreMovies;
+}
+
+
 function moviesAverageOfDirector(array, director) {
   const arrayMoviesDirector = getMoviesFromDirector(array, director);
-  console.log('arrayMoviesDirector.length', arrayMoviesDirector.length);
-  let scoresSumDirector = arrayMoviesDirector.reduce((accumulator, current) => accumulator + current.score , 0);
-  let result = parseFloat((scoresSumDirector / arrayMoviesDirector.length).toFixed(2));
-  console.log("EXERCICE 3 ->", result);
-  return result;
+  let averageScoreMoviesDirector = moviesAverage(arrayMoviesDirector);
+  console.log("EXERCICE 3 ->", averageScoreMoviesDirector);
+  return averageScoreMoviesDirector;
 }
 //moviesAverageOfDirector(movies, 'Quentin Tarantino');
 
@@ -64,9 +70,14 @@ function orderByYear(array) {
 //orderByYear(movies)
 
 // Exercise 6: Calculate the average of the movies in a category
-function moviesAverageByCategory() {
-
+function moviesAverageByCategory(array, category) {
+const arrayCategoryMoviesWithScore = array.filter(movie => (movie.genre.includes(category)) && (movie.score !== ""));
+console.log(arrayCategoryMoviesWithScore);
+console.log("EXERCICE 6 ->", moviesAverage(arrayCategoryMoviesWithScore));
+return moviesAverage(arrayCategoryMoviesWithScore);
 }
+
+//moviesAverageByCategory(movies, 'Film-Noir');
 
 // Exercise 7: Modify the duration of movies to minutes
 function hoursToMinutes() {
