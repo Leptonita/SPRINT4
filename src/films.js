@@ -45,7 +45,7 @@ function orderAlphabetically(array) {
   console.log("EXERCICE 4 ->", result);
   return result;  
 }
-
+//ex4 - array of only titles ordered alphabetically
 //orderAlphabetically(movies);
 
 // Exercise 5: Order by year, ascending
@@ -71,18 +71,32 @@ function orderByYear(array) {
 
 // Exercise 6: Calculate the average of the movies in a category
 function moviesAverageByCategory(array, category) {
-const arrayCategoryMoviesWithScore = array.filter(movie => (movie.genre.includes(category)) && (movie.score !== ""));
-console.log(arrayCategoryMoviesWithScore);
-console.log("EXERCICE 6 ->", moviesAverage(arrayCategoryMoviesWithScore));
-return moviesAverage(arrayCategoryMoviesWithScore);
+  const arrayCategoryMoviesWithScore = array.filter(movie => (movie.genre.includes(category)) && (movie.score !== ""));
+  console.log(arrayCategoryMoviesWithScore);
+  console.log("EXERCICE 6 ->", moviesAverage(arrayCategoryMoviesWithScore));
+  return moviesAverage(arrayCategoryMoviesWithScore);
 }
 
 //moviesAverageByCategory(movies, 'Film-Noir');
 
 // Exercise 7: Modify the duration of movies to minutes
-function hoursToMinutes() {
+function hoursToMinutes(array) {
+  //a new array as a deep copy of the original array so we will not modify the original one.
+  const copyArray = JSON.parse(JSON.stringify(array));
 
+  copyArray.forEach(movie => {
+    const durationSplit = movie.duration.split('h');
+    let hoursInMinPart = Number(durationSplit[0]) * 60;
+    let minutesPart = Number(durationSplit[1].replace('min',''));
+    movie['duration'] = hoursInMinPart + minutesPart
+    //console.log("movie duration", movie.duration);  
+  });
+    console.log('original', array)
+    console.log("EXERCICE 7 ->", copyArray);
+    return copyArray;
 }
+//ex7
+//hoursToMinutes(movies);
 
 // Exercise 8: Get the best film of a year
 function bestFilmOfYear() {
