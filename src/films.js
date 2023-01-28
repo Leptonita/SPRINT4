@@ -102,7 +102,7 @@ function hoursToMinutes(array) {
 function bestFilmOfYear(array, yearPick) {
   
   const moviesOfYearArr = array.filter(movie => movie.year === yearPick);
-  console.log("moviesOfYearArr ->", moviesOfYearArr);
+  //console.log("moviesOfYearArr ->", moviesOfYearArr);
   //const bestMovieOfYear = moviesOfYearArr.sort((a, b) => b.score - a.score)[0];
   const maxScoreOfYear = moviesOfYearArr.reduce((maxScore, movie) => {    
     if (movie.score > maxScore){ 

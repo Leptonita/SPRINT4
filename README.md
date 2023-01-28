@@ -84,5 +84,8 @@ an array of information about 250 movies.
 - Don't forget to include the capture of the test results in the virtual campus.
 
 ## Nivell 1 ex1 to ex6 ##
+## Nivell 2 ex7 ##
+## Nivell 3 ex8 ##
+## captura de pantalla del test
 
 
