@@ -63,7 +63,7 @@ function orderByYear(array) {
   }
   ));
   let result = orderedByYear;
-  
+  console.log('original', array);
   console.log("EXERCICE 5 ->", result);
   return result;  
 }
@@ -99,10 +99,23 @@ function hoursToMinutes(array) {
 //hoursToMinutes(movies);
 
 // Exercise 8: Get the best film of a year
-function bestFilmOfYear() {
+function bestFilmOfYear(array, yearPick) {
+  
+  const moviesOfYearArr = array.filter(movie => movie.year === yearPick);
+  console.log("moviesOfYearArr ->", moviesOfYearArr);
+  //const bestMovieOfYear = moviesOfYearArr.sort((a, b) => b.score - a.score)[0];
+  const maxScoreOfYear = moviesOfYearArr.reduce((maxScore, movie) => {    
+    if (movie.score > maxScore){ 
+      maxScore = movie.score;
+    }
+    return maxScore;
+  }, 0);
+  const bestMovieOfYear = moviesOfYearArr.filter(movie => movie.score === maxScoreOfYear)
+  console.log("EXERCICE 8 ->", bestMovieOfYear);
+  return bestMovieOfYear;
   
 }
-
+//bestFilmOfYear(movies, 1994);
 
 
 // The following is required to make unit tests work.
